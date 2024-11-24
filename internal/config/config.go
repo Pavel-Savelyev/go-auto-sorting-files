@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-type config struct {
+type AppConfig struct {
 	Path  string `json:"path"`
 	Rules []rule `json:"rules"`
 }
@@ -16,12 +16,12 @@ type rule struct {
 	Directory string `json:"directory"`
 }
 
-func Read() (config, error) {
+func Read() (AppConfig, error) {
 	return readConfig()
 }
 
-func readConfig() (config, error) {
-	var config config
+func readConfig() (AppConfig, error) {
+	var config AppConfig
 
 	jsonFile, err := os.Open("config.json")
 	if err != nil {

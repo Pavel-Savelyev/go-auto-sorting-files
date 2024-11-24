@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"go-auto-sorting-files/internal/config"
 	"go-auto-sorting-files/internal/scan_folder"
+	"go-auto-sorting-files/internal/sort_file"
 	"log"
 )
 
@@ -13,14 +13,6 @@ func main() {
 		log.Fatalf("Error initializing config: %v", err)
 	}
 
-	fmt.Println("Config read successfully!")
-
-	for _, v := range config.Rules {
-		fmt.Println(v.Directory + v.Extension)
-	}
-
-	fmt.Println(config.Path)
-
 	scan_folder.ScanFolder(config.Path)
 
 	fileList, err := scan_folder.ScanFolder(config.Path)
@@ -28,7 +20,7 @@ func main() {
 		log.Fatalf("Error reading source directory: %v", err)
 	}
 
-	for _, v := range fileList.Files {
-		fmt.Println(v)
+	if err := sort_file.Sort(config, fileList); err != nil {
+		log.Fatalf("Error when transferring file: %v", err)
 	}
 }

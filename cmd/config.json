@@ -3,15 +3,19 @@
     "rules": [
         {
             "extension": ".jpg",
-            "directory": "images"
+            "directory": "/home/pavel/Изображения"
         },
         {
             "extension": ".mp3",
-            "directory": "music"
+            "directory": "/home/pavel/Музыка"
         },
         {
             "extension": ".txt",
-            "directory": "documents"
+            "directory": "/home/pavel/Документы"
+        },
+        {
+            "extension": ".mp4",
+            "directory": "/home/pavel/Видео"
         }
     ]
 }
