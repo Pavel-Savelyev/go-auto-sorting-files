@@ -7,6 +7,7 @@ import (
 )
 
 type config struct {
+	Path  string `json:"path"`
 	Rules []rule `json:"rules"`
 }
 
@@ -15,7 +16,7 @@ type rule struct {
 	Directory string `json:"directory"`
 }
 
-func Init() (config, error) {
+func Read() (config, error) {
 	return readConfig()
 }
 
