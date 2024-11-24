@@ -5,7 +5,7 @@ import (
 	"path"
 )
 
-type fileList struct {
+type FileList struct {
 	Files []file
 }
 
@@ -15,10 +15,10 @@ type file struct {
 	IsDir     bool
 }
 
-func ScanFolder(pathFolder string) (fileList, error) {
+func ScanFolder(pathFolder string) (FileList, error) {
 	data, err := os.ReadDir(pathFolder)
 	if err != nil {
-		return fileList{}, err
+		return FileList{}, err
 	}
 
 	files := make([]file, len(data))
@@ -27,7 +27,7 @@ func ScanFolder(pathFolder string) (fileList, error) {
 		files[index] = newFile(value.Name(), path.Ext(value.Name()), value.IsDir())
 	}
 
-	return fileList{Files: files}, nil
+	return FileList{Files: files}, nil
 }
 
 func newFile(name string, extension string, isDir bool) file {
