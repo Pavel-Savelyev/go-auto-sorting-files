@@ -12,10 +12,10 @@ type AppConfig struct {
 
 type Folder struct {
 	Path  string `json:"source_folder_path"`
-	Rules []rule `json:"file_organization_rules"`
+	Rules []Rule `json:"file_organization_rules"`
 }
 
-type rule struct {
+type Rule struct {
 	Directory      string   `json:"destination_folder"`
 	FileExtensions []string `json:"file_extensions"`
 	NameContains   []string `json:"name_contains"`
