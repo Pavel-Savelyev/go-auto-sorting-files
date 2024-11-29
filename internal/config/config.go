@@ -16,8 +16,8 @@ type Folder struct {
 }
 
 type rule struct {
-	Extension string `json:"file_extension"`
-	Directory string `json:"destination_folder"`
+	Directory      string   `json:"destination_folder"`
+	FileExtensions []string `json:"file_extensions"`
 }
 
 func Read() (AppConfig, error) {

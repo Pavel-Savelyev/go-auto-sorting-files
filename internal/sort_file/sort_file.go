@@ -11,12 +11,14 @@ import (
 func Sort(folder config.Folder, fileList scan_folder.FileList) error {
 	for _, file := range fileList.Files {
 		for _, rule := range folder.Rules {
-			if file.Extension == rule.Extension {
-				if err := moveFile(path.Join(folder.Path, file.Name), path.Join(rule.Directory, file.Name)); err != nil {
-					return err
+			for _, extension := range rule.FileExtensions {
+				if file.Extension == extension {
+					if err := moveFile(path.Join(folder.Path, file.Name), path.Join(rule.Directory, file.Name)); err != nil {
+						return err
+					}
+					fmt.Printf("File :%v moving \n\r", file.Name)
+					break
 				}
-				fmt.Printf("File :%v moving \n\r", file.Name)
-				break
 			}
 		}
 	}
