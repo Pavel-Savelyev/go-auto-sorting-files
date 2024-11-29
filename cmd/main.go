@@ -13,14 +13,14 @@ func main() {
 		log.Fatalf("Error initializing config: %v", err)
 	}
 
-	scan_folder.ScanFolder(config.Path)
+	for _, folder := range config.Folders {
+		fileList, err := scan_folder.ScanFolder(folder.Path)
+		if err != nil {
+			log.Fatalf("Error reading source directory: %v", err)
+		}
 
-	fileList, err := scan_folder.ScanFolder(config.Path)
-	if err != nil {
-		log.Fatalf("Error reading source directory: %v", err)
-	}
-
-	if err := sort_file.Sort(config, fileList); err != nil {
-		log.Fatalf("Error when transferring file: %v", err)
+		if err := sort_file.Sort(folder, fileList); err != nil {
+			log.Fatalf("Error when transferring file: %v", err)
+		}
 	}
 }
