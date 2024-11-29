@@ -1,21 +1,53 @@
 {
-    "path": "/home/pavel/Загрузки",
-    "rules": [
+    "folders": [
         {
-            "extension": ".jpg",
-            "directory": "/home/pavel/Изображения"
-        },
-        {
-            "extension": ".mp3",
-            "directory": "/home/pavel/Музыка"
-        },
-        {
-            "extension": ".txt",
-            "directory": "/home/pavel/Документы"
-        },
-        {
-            "extension": ".mp4",
-            "directory": "/home/pavel/Видео"
+            "source_folder_path": "/home/pavel/Загрузки",
+            "file_organization_rules": [
+                {
+                    "destination_folder": "/home/pavel/Изображения",
+                    "file_extensions": [
+                        ".jpg",
+                        ".png"
+                    ],
+                    "name_contains": [
+                        "work",
+                        "project"
+                    ]
+                },
+                {
+                    "destination_folder": "/home/pavel/Музыка",
+                    "file_extensions": [
+                        ".mp3",
+                        ".wav"
+                    ],
+                    "name_contains": [
+                        "work",
+                        "project"
+                    ]
+                },
+                {
+                    "destination_folder": "/home/pavel/Документы",
+                    "file_extensions": [
+                        ".txt",
+                        ".docx"
+                    ],
+                    "name_contains": [
+                        "work",
+                        "project"
+                    ]
+                },
+                {
+                    "destination_folder": "/home/pavel/Видео",
+                    "file_extensions": [
+                        ".mp4",
+                        ".avi"
+                    ],
+                    "name_contains": [
+                        "work",
+                        "project"
+                    ]
+                }
+            ]
         }
     ]
 }
