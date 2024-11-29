@@ -8,11 +8,11 @@ import (
 	"path"
 )
 
-func Sort(config config.AppConfig, fileList scan_folder.FileList) error {
+func Sort(folder config.Folder, fileList scan_folder.FileList) error {
 	for _, file := range fileList.Files {
-		for _, rule := range config.Rules {
+		for _, rule := range folder.Rules {
 			if file.Extension == rule.Extension {
-				if err := moveFile(path.Join(config.Path, file.Name), path.Join(rule.Directory, file.Name)); err != nil {
+				if err := moveFile(path.Join(folder.Path, file.Name), path.Join(rule.Directory, file.Name)); err != nil {
 					return err
 				}
 				fmt.Printf("File :%v moving \n\r", file.Name)

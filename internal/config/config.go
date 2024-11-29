@@ -7,13 +7,17 @@ import (
 )
 
 type AppConfig struct {
-	Path  string `json:"path"`
-	Rules []rule `json:"rules"`
+	Folders []Folder `json:"folders"`
+}
+
+type Folder struct {
+	Path  string `json:"source_folder_path"`
+	Rules []rule `json:"file_organization_rules"`
 }
 
 type rule struct {
-	Extension string `json:"extension"`
-	Directory string `json:"directory"`
+	Extension string `json:"file_extension"`
+	Directory string `json:"destination_folder"`
 }
 
 func Read() (AppConfig, error) {
